@@ -29,24 +29,25 @@ public class StandPool {
 			return toString().equals(poolString);
 		}
 		
-		public boolean takeStand(String stand) {
-			if (availableNum < MAX_STAND) {
-				if (stand.equals(BET_YES)) {
-					numYes = numYes + 1;
-					availableNum = availableNum - 1;
-				} else if (stand.equals(BET_NO)) {
-					numNo = numNo + 1;
-					availableNum = availableNum - 1;
-				}
-				return true;
-			}
-			return false;
-		}
+//		public boolean takeStand(String stand) {
+//			if (availableNum < MAX_STAND) {
+//				if (stand.equals(BET_YES)) {
+//					numYes = numYes + 1;
+//					availableNum = availableNum - 1;
+//				} else if (stand.equals(BET_NO)) {
+//					numNo = numNo + 1;
+//					availableNum = availableNum - 1;
+//				}
+//				return true;
+//			}
+//			return false;
+//		}
 		
 		public boolean avaiable() {
 			return (availableNum > 0);
 		}
 		
+		/* TODO: Hold, Release and Finish operation should all be sync up with server */
 		public void hold() {
 			availableNum = availableNum - 1;
 		}
@@ -60,7 +61,7 @@ public class StandPool {
 				release();
 			}
 		}
-		
+
 		public void release() {
 			availableNum = availableNum + 1;
 		}

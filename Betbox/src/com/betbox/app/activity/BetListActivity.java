@@ -135,6 +135,7 @@ public class BetListActivity extends FragmentActivity implements
 		}
 	}
 	
+	/* BroadcastReceiver instance used to receive notification message from GCMIntentService */
 	private final BroadcastReceiver mHandleMessageReceiver = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context context, Intent intent) {

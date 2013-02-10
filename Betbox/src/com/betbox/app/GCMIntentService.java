@@ -69,6 +69,8 @@ public class GCMIntentService extends GCMBaseIntentService {
 		}
 	}
 
+	
+	/* Receive message from GCM and parse them as JSON format */
 	@Override
 	protected void onMessage(Context context, Intent intent) {
 		Log.i(TAG, "Received message");

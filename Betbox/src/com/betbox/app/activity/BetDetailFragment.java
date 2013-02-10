@@ -88,6 +88,10 @@ public class BetDetailFragment extends Fragment {
 
 				if (radioBetButton != null && mItem.pool.avaiable()) {
 					String message = radioBetButton.getText().toString();
+					/* Hold a position in the bet pool when the pay transaction is started.
+					 * If the transaction fails, release this position.
+					 * TODO: Hold should also be sync up with the server.
+					 */
 					mItem.pool.hold();
 					Intent intent = new Intent(getActivity(), BetPayment.class);					
 					intent.putExtra(BET_CONTENT, mItem.content);

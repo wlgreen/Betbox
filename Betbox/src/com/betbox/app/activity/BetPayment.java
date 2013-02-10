@@ -58,6 +58,7 @@ public class BetPayment extends Activity implements OnClickListener {
 	private TextView info;
 	private TextView extra;
 
+    /* Handler instance to handle he paypal library initialization thread */
 	Handler checkInit = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
@@ -77,6 +78,7 @@ public class BetPayment extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		/* New thread created to initialize the paypal library */
 		Thread libraryInitializationThread = new Thread() {
 			@Override
 			public void run() {
@@ -237,6 +239,7 @@ public class BetPayment extends Activity implements OnClickListener {
 			resultInfo = "You have successfully completed this preapproval.";
 			resultExtra = "Transaction ID: "
 					+ data.getStringExtra(PayPalActivity.EXTRA_PAY_KEY);
+			/* Update the server if the paypal transaction is successful */
 			updateServer();
 			break;
 		case Activity.RESULT_CANCELED:

@@ -84,6 +84,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			mDisplay = new TextView(this);
 			mDisplay.setGravity(Gravity.CENTER_HORIZONTAL);
 			content.addView(mDisplay);
+			/* Register the broadcast receiver to the main activity to receive notificatios */
 			registerReceiver(mHandleMessageReceiver, new IntentFilter(
 					DISPLAY_MESSAGE_ACTION));
 			final String regId = GCMRegistrar.getRegistrationId(this);
@@ -180,6 +181,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 	}
 	
+	/* BroadcastReceiver instance used to receive notification message from GCMIntentService */
 	private final BroadcastReceiver mHandleMessageReceiver = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context context, Intent intent) {

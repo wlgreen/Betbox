@@ -33,6 +33,7 @@ public class BetPool {
 	/*
 	 * Generate id for a new bet input, return null if this bet is already
 	 * stored
+	 * PS: Currently the bet content is used as the id.
 	 */
 	private static String generateID(Bet bet) {
 		String id = bet.content;
@@ -43,13 +44,10 @@ public class BetPool {
 		return id;
 	}
 
-	// static {
-	// // Add 3 sample items.
-	// addItem(new Bet("Will Lakes win?"));
-	// addItem(new Bet("Will Nasa lanches its rockets?"));
-	// addItem(new Bet("Will it rain tomorrow?"));
-	// }
-
+	/* Create new bet item in the pool.
+	 * Also update the last updated time in the pool.
+	 * TODO: Should use last updated time instead of creation time to track the status.
+	 */
 	public static void addItem(Bet item) {
 		String id = generateID(item);
 		if (id != null) {
